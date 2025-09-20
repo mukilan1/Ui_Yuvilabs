@@ -30,7 +30,7 @@ class AppConstants {
   static const double foodImageLarge = 200.0;
 
   // Calendar
-  static const double calendarItemSize = 36.0;
+  static const double calendarItemSize = 20.0;
 
   // Cards
   static const double dailyCardWidth = 156.0;

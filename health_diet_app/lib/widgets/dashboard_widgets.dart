@@ -97,20 +97,25 @@ class CalendarDayItem extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         SizedBox(
-          width: AppConstants.calendarItemSize + (isActive ? 6 : 10),
-          height: AppConstants.calendarItemSize + (isActive ? 6 : 10),
+          width: AppConstants.calendarItemSize + 10,
+          height: AppConstants.calendarItemSize + 10,
           child: CircularProgressIndicator(
             value: progress,
             strokeWidth: 2, // Thinned from 3
-            backgroundColor: Colors.grey[300],
+            backgroundColor:
+                AppColors.white, // Changed from grey[300] to match background
             valueColor: AlwaysStoppedAnimation<Color>(
-              isActive ? AppColors.successGreen : Colors.black,
+              isActive ? AppColors.primaryGreen : Colors.black,
             ),
           ),
         ),
         Container(
-          width: AppConstants.calendarItemSize,
-          height: AppConstants.calendarItemSize,
+          width: isActive
+              ? AppConstants.calendarItemSize + 6
+              : AppConstants.calendarItemSize,
+          height: isActive
+              ? AppConstants.calendarItemSize + 6
+              : AppConstants.calendarItemSize,
           decoration: BoxDecoration(
             color: isActive ? AppColors.primaryGreen : AppColors.white,
             shape: BoxShape.circle,

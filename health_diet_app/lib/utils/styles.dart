@@ -61,7 +61,7 @@ class AppTextStyles {
   // Calendar Text
   static const TextStyle calendarDay = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 14,
+    fontSize: 12, // Decreased from 14 to fit smaller containers
     fontWeight: FontWeight.bold,
     color: AppColors.darkText,
   );
