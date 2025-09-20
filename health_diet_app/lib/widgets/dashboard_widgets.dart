@@ -373,8 +373,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
               ),
               // Center space for floating button
               const SizedBox(
-                width: 88,
-              ), // Space for center button (64px + padding)
+                width: 78,
+              ), // Space for center button (54px + padding)
               // Right side items
               Expanded(
                 flex: 1,

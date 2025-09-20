@@ -68,8 +68,8 @@ class _MainScreenState extends State<MainScreen> {
           // Floating navigation bar
           Positioned(
             bottom: 36,
-            left: 16,
-            right: 16,
+            left: 30,
+            right: 30,
             child: CustomBottomNavigationBar(
               currentIndex: currentIndex,
               onTap: (index) {
@@ -83,14 +83,14 @@ class _MainScreenState extends State<MainScreen> {
           Positioned(
             bottom:
                 36 +
-                31 -
-                8, // Nav bar bottom (36) + half nav height (31) - overlap (8) - moved higher
+                20 +
+                2, // Nav bar bottom (36) + half nav height (29) + offset (7) - moved higher
             left:
                 MediaQuery.of(context).size.width / 2 -
-                32, // Center horizontally
+                29, // Center horizontally
             child: Container(
-              width: 64,
-              height: 64,
+              width: 58,
+              height: 58,
               decoration: BoxDecoration(
                 color: const Color(0xFF8ADC97),
                 shape: BoxShape.circle,
@@ -130,7 +130,7 @@ class _MainScreenState extends State<MainScreen> {
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  borderRadius: BorderRadius.circular(32),
+                  borderRadius: BorderRadius.circular(29),
                   onTap: () {
                     setState(() {
                       currentIndex = 2;
@@ -140,7 +140,7 @@ class _MainScreenState extends State<MainScreen> {
                     child: Icon(
                       Icons.auto_awesome,
                       color: Color(0xFFFFFFFF),
-                      size: 28,
+                      size: 29,
                     ),
                   ),
                 ),
