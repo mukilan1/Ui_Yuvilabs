@@ -273,7 +273,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
                       child: Column(
                         children: [
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
                                 'Servings',
@@ -282,6 +282,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                   fontSize: 12,
                                 ),
                               ),
+                              SizedBox(width: 83),
                               Text(
                                 'Preparation',
                                 style: TextStyle(
@@ -289,6 +290,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                   fontSize: 12,
                                 ),
                               ),
+                              SizedBox(width: 80),
                               Text(
                                 'Cook',
                                 style: TextStyle(
@@ -300,7 +302,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
                           ),
                           const SizedBox(height: 8),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Row(
                                 children: [
@@ -317,7 +319,9 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                   ),
                                 ],
                               ),
+                              SizedBox(width: 45),
                               Text('5 Mins', style: TextStyle(fontSize: 11)),
+                              SizedBox(width: 110),
                               Text('20 mins', style: TextStyle(fontSize: 11)),
                             ],
                           ),
