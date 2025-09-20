@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildHeader(),
-              const SizedBox(height: AppConstants.spacingLarge),
+              const SizedBox(height: AppConstants.spacingSmall),
               _buildCalendarRow(),
               const SizedBox(height: AppConstants.spacingLarge),
               _buildDailyOverviewSection(),
