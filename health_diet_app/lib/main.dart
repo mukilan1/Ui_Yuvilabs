@@ -61,13 +61,13 @@ class _MainScreenState extends State<MainScreen> {
           // Main content with padding at bottom for floating nav
           Padding(
             padding: const EdgeInsets.only(
-              bottom: 88,
+              bottom: 98,
             ), // Space for floating nav
             child: IndexedStack(index: currentIndex, children: screens),
           ),
           // Floating navigation bar
           Positioned(
-            bottom: 16,
+            bottom: 36,
             left: 16,
             right: 16,
             child: CustomBottomNavigationBar(
@@ -82,9 +82,9 @@ class _MainScreenState extends State<MainScreen> {
           // Center floating button
           Positioned(
             bottom:
-                16 +
-                36 -
-                8, // Nav bar bottom (16) + half nav height (36) - overlap (8) - moved higher
+                36 +
+                31 -
+                8, // Nav bar bottom (36) + half nav height (31) - overlap (8) - moved higher
             left:
                 MediaQuery.of(context).size.width / 2 -
                 32, // Center horizontally
