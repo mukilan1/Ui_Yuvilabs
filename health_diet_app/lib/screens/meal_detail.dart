@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import '../utils/colors.dart';
-import '../utils/styles.dart';
 import '../utils/constants.dart';
 import '../widgets/meal_detail_widgets.dart';
 
@@ -65,35 +65,43 @@ class _MealDetailPageState extends State<MealDetailPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          GestureDetector(
-            onTap: () => Navigator.pop(context),
-            child: const Icon(
-              Icons.arrow_back,
-              size: AppConstants.iconSmall,
-              color: AppColors.darkText,
+          Container(
+            width: 40,
+            height: 40,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black,
+            ),
+            child: IconButton(
+              padding: EdgeInsets.zero,
+              onPressed: () => Navigator.pop(context),
+              icon: const Icon(
+                MdiIcons.chevronLeft,
+                size: 32.0,
+                color: Colors.white,
+              ),
             ),
           ),
-          Row(
-            children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    isFavorite = !isFavorite;
-                  });
-                },
-                child: Icon(
-                  isFavorite ? Icons.favorite : Icons.favorite_border,
-                  size: AppConstants.iconSmall,
-                  color: AppColors.favoriteRed,
-                ),
-              ),
-              const SizedBox(width: AppConstants.spacingMedium),
-              const Icon(
-                Icons.share,
+          Container(
+            width: 40,
+            height: 40,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black,
+            ),
+            child: IconButton(
+              padding: EdgeInsets.zero,
+              onPressed: () {
+                setState(() {
+                  isFavorite = !isFavorite;
+                });
+              },
+              icon: Icon(
+                isFavorite ? Icons.favorite : Icons.favorite_border,
                 size: AppConstants.iconSmall,
-                color: AppColors.darkText,
+                color: Colors.white,
               ),
-            ],
+            ),
           ),
         ],
       ),
@@ -101,16 +109,12 @@ class _MealDetailPageState extends State<MealDetailPage> {
   }
 
   Widget _buildFoodImage() {
-    return Container(
-      width: AppConstants.foodImageLarge,
-      height: AppConstants.foodImageLarge,
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-        borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
-        boxShadow: const [AppShadows.imageShadow],
-      ),
-      child: const Center(
-        child: Icon(Icons.fastfood, size: 80, color: AppColors.mutedText),
+    return Center(
+      child: Image.asset(
+        'assets/Food_Bowl.png',
+        width: AppConstants.foodImageLarge * 1.4,
+        height: AppConstants.foodImageLarge * 1.4,
+        fit: BoxFit.contain,
       ),
     );
   }
