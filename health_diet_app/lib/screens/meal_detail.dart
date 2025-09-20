@@ -22,11 +22,11 @@ class _MealDetailPageState extends State<MealDetailPage> {
     final meal =
         widget.mealData ??
         {
-          'name': 'Oatmeal with Berries',
-          'calories': '280 cal',
-          'carbs': '45g',
-          'protein': '8g',
-          'fat': '6g',
+          'name': 'Oatmeal with Berries 🫐',
+          'calories': '250 kcal',
+          'carbs': '40g',
+          'protein': '10g',
+          'fat': '5g',
         };
 
     return Scaffold(
@@ -113,43 +113,134 @@ class _MealDetailPageState extends State<MealDetailPage> {
       padding: const EdgeInsets.symmetric(
         horizontal: AppConstants.paddingMedium,
       ),
-      child: Column(
+      child: Container(
+        padding: const EdgeInsets.all(AppConstants.paddingMedium),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
+          boxShadow: const [AppShadows.cardShadow],
+        ),
+        child: Row(
+          children: [
+            // Left Section
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Title
+                  Row(
+                    children: [
+                      Expanded(
+                        child: RichText(
+                          text: const TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'Oatmeal with Berries ',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.darkText,
+                                  fontFamily: 'Roboto',
+                                ),
+                              ),
+                              TextSpan(
+                                text: '🫐',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontFamily: 'Roboto',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const Icon(
+                        Icons.download_outlined,
+                        color: Colors.black,
+                        size: 16,
+                      ),
+                      const SizedBox(width: 8),
+                      const Icon(
+                        Icons.share_outlined,
+                        color: Colors.black,
+                        size: 16,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: AppConstants.spacingSmall),
+                  // Calorie Count and Macronutrient Badges in same row
+                  Row(
+                    children: [
+                      // Calorie Count
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: '250',
+                              style: const TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.darkText,
+                              ),
+                            ),
+                            TextSpan(
+                              text: ' kcal',
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
+                                color: AppColors.darkText,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      // Macronutrient Badges
+                      _buildMacroBadge(
+                        Icons.water_drop,
+                        '40g',
+                        AppColors.carbsBlue,
+                      ),
+                      const SizedBox(width: 8),
+                      _buildMacroBadge(
+                        Icons.restaurant_menu,
+                        '10g',
+                        AppColors.proteinPurple,
+                      ),
+                      const SizedBox(width: 8),
+                      _buildMacroBadge(Icons.waves, '5g', AppColors.fatPink),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMacroBadge(IconData icon, String value, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
+          Icon(icon, size: 14, color: color),
+          const SizedBox(width: 4),
           Text(
-            meal['name'],
-            style: AppTextStyles.mealTitle,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: AppConstants.spacingMedium),
-          Text(meal['calories'], style: AppTextStyles.caloriesLarge),
-          const SizedBox(height: AppConstants.spacingMedium),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              MacroBadge(
-                label: 'Carbs',
-                value: meal['carbs'],
-                color: AppColors.primaryBlue,
-              ),
-              const SizedBox(width: AppConstants.spacingSmall),
-              MacroBadge(
-                label: 'Protein',
-                value: meal['protein'],
-                color: AppColors.primaryPurple,
-              ),
-              const SizedBox(width: AppConstants.spacingSmall),
-              MacroBadge(
-                label: 'Fat',
-                value: meal['fat'],
-                color: AppColors.primaryPink,
-              ),
-            ],
-          ),
-          const SizedBox(height: AppConstants.spacingMedium),
-          const Text(
-            'A wholesome breakfast combining creamy oats with fresh berries, providing sustained energy and essential nutrients to start your day right.',
-            style: AppTextStyles.bodySmall,
-            textAlign: TextAlign.center,
+            value,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+              color: color,
+            ),
           ),
         ],
       ),
