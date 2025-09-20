@@ -16,6 +16,7 @@ class MealDetailPage extends StatefulWidget {
 class _MealDetailPageState extends State<MealDetailPage> {
   bool isFavorite = false;
   int servingCount = 1;
+  int currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -105,12 +106,51 @@ class _MealDetailPageState extends State<MealDetailPage> {
   }
 
   Widget _buildFoodImage() {
-    return Center(
-      child: Image.asset(
-        'assets/Food_Bowl.png',
-        width: AppConstants.foodImageLarge * 1.6,
-        height: AppConstants.foodImageLarge * 1.6,
-        fit: BoxFit.contain,
+    return SizedBox(
+      height: AppConstants.foodImageLarge * 1.6,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          PageView.builder(
+            itemCount: 4,
+            onPageChanged: (index) {
+              setState(() {
+                currentPage = index;
+              });
+            },
+            itemBuilder: (context, index) {
+              return Center(
+                child: Image.asset(
+                  'assets/Food_Bowl.png',
+                  width: AppConstants.foodImageLarge * 1.6,
+                  height: AppConstants.foodImageLarge * 1.6,
+                  fit: BoxFit.contain,
+                ),
+              );
+            },
+          ),
+          Positioned(bottom: 20, child: _buildPageIndicator()),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPageIndicator() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(
+        4,
+        (index) => Container(
+          margin: const EdgeInsets.symmetric(horizontal: 6),
+          width: currentPage == index ? 36 : 8,
+          height: 8,
+          decoration: BoxDecoration(
+            color: currentPage == index
+                ? const Color(0xFF8ADC97)
+                : const Color(0xFFCBD6CE),
+            borderRadius: BorderRadius.circular(4),
+          ),
+        ),
       ),
     );
   }
