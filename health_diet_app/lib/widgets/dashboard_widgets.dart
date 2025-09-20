@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import '../utils/colors.dart';
 import '../utils/styles.dart';
 import '../utils/constants.dart';
@@ -245,23 +247,23 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildNavItem(Icons.home_outlined, 'Home', 0),
-                    _buildNavItem(Icons.bar_chart_outlined, 'Tracker', 1),
+                    _buildNavItem(MdiIcons.homeOutline, 'Home', 0),
+                    _buildNavItem(MdiIcons.chartBar, 'Tracker', 1),
                   ],
                 ),
               ),
               // Center space for floating button
               const SizedBox(
-                width: 80,
-              ), // Space for center button (56px + padding)
+                width: 88,
+              ), // Space for center button (64px + padding)
               // Right side items
               Expanded(
                 flex: 1,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildNavItem(Icons.favorite_outline, 'Habits', 3),
-                    _buildNavItem(Icons.settings_outlined, 'Settings', 4),
+                    _buildNavItem(MdiIcons.foodAppleOutline, 'Habits', 3),
+                    _buildNavItem(MdiIcons.cogOutline, 'Settings', 4),
                   ],
                 ),
               ),
@@ -273,7 +275,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
   }
 
   Widget _buildNavItem(IconData icon, String label, int index) {
-    final isActive = currentIndex == index;
     return GestureDetector(
       onTap: () => onTap(index),
       child: Container(
@@ -283,9 +284,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
           children: [
             Icon(
               icon,
-              color: isActive
-                  ? const Color(0xFF7BD48C)
-                  : const Color(0xFF9CA3AF),
+              color: Colors.black, // All navigation icons black
               size: 24,
               weight: 1.5, // Thin line icons
             ),
@@ -295,9 +294,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w500,
-                color: isActive
-                    ? const Color(0xFF7BD48C)
-                    : const Color(0xFF9CA3AF),
+                color: Colors.black, // All navigation text black
                 letterSpacing: 0.2,
               ),
             ),

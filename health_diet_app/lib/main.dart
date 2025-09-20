@@ -87,26 +87,22 @@ class _MainScreenState extends State<MainScreen> {
                 8, // Nav bar bottom (16) + half nav height (36) - overlap (8) - moved higher
             left:
                 MediaQuery.of(context).size.width / 2 -
-                28, // Center horizontally
+                32, // Center horizontally
             child: Container(
-              width: 56,
-              height: 56,
+              width: 64,
+              height: 64,
               decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color(0xFF7BD48C), Color(0xFF6BC17A)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: const Color(0xFF8ADC97),
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFF7BD48C).withOpacity(0.4),
+                    color: const Color(0xFF8ADC97).withOpacity(0.4),
                     offset: const Offset(0, 6),
                     blurRadius: 16,
                     spreadRadius: 1,
                   ),
                   BoxShadow(
-                    color: const Color(0xFF7BD48C).withOpacity(0.2),
+                    color: const Color(0xFF8ADC97).withOpacity(0.2),
                     offset: const Offset(0, 2),
                     blurRadius: 8,
                     spreadRadius: 0,
@@ -134,7 +130,7 @@ class _MainScreenState extends State<MainScreen> {
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  borderRadius: BorderRadius.circular(28),
+                  borderRadius: BorderRadius.circular(32),
                   onTap: () {
                     setState(() {
                       currentIndex = 2;
@@ -144,7 +140,7 @@ class _MainScreenState extends State<MainScreen> {
                     child: Icon(
                       Icons.auto_awesome,
                       color: Color(0xFFFFFFFF),
-                      size: 24,
+                      size: 28,
                     ),
                   ),
                 ),
