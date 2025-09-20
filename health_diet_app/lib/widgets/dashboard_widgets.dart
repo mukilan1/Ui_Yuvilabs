@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'dart:math';
 import '../utils/colors.dart';
 import '../utils/styles.dart';
 import '../utils/constants.dart';
@@ -44,23 +45,89 @@ class DailyOverviewCard extends StatelessWidget {
   }
 }
 
+class ArcBorderPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+
+    final center = Offset(size.width / 2, size.height / 2);
+    final radius = size.width / 2;
+
+    // Draw top arc
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      -pi / 2, // start angle (top)
+      pi, // sweep angle (180 degrees)
+      false,
+      paint,
+    );
+
+    // Draw bottom arc
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      pi / 2, // start angle (bottom)
+      pi, // sweep angle (180 degrees)
+      false,
+      paint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
+
 class CalendarDayItem extends StatelessWidget {
   final String day;
   final bool isActive;
+  final double progress;
 
-  const CalendarDayItem({Key? key, required this.day, this.isActive = false})
-    : super(key: key);
+  const CalendarDayItem({
+    Key? key,
+    required this.day,
+    this.isActive = false,
+    this.progress = 0.0,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: AppConstants.calendarItemSize,
-      height: AppConstants.calendarItemSize,
-      decoration: BoxDecoration(
-        color: isActive ? AppColors.primaryGreen : AppColors.lightGrey,
-        shape: BoxShape.circle,
-      ),
-      child: Center(child: Text(day, style: AppTextStyles.calendarDay)),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SizedBox(
+          width: AppConstants.calendarItemSize + 10,
+          height: AppConstants.calendarItemSize + 10,
+          child: CircularProgressIndicator(
+            value: progress,
+            strokeWidth: 3,
+            backgroundColor: Colors.grey[300],
+            valueColor: AlwaysStoppedAnimation<Color>(
+              isActive ? AppColors.successGreen : Colors.black,
+            ),
+          ),
+        ),
+        Container(
+          width: AppConstants.calendarItemSize,
+          height: AppConstants.calendarItemSize,
+          decoration: BoxDecoration(
+            color: isActive ? AppColors.primaryGreen : AppColors.white,
+            shape: BoxShape.circle,
+            border: isActive
+                ? Border.all(color: AppColors.successGreen, width: 2)
+                : null,
+          ),
+          child: Center(
+            child: Text(
+              day,
+              style: AppTextStyles.calendarDay.copyWith(
+                color: isActive ? AppColors.white : AppColors.darkText,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -128,14 +195,14 @@ class MealItemCard extends StatelessWidget {
                         return const Icon(
                           Icons.bakery_dining,
                           color: Color(0xFF8D6E63),
-                          size: 32,
+                          size: 18,
                         );
                       },
                     )
                   : const Icon(
                       Icons.restaurant,
                       color: Color(0xFF8D6E63),
-                      size: 32,
+                      size: 18,
                     ),
             ),
           ),

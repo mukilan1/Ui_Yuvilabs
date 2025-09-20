@@ -136,6 +136,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(7, (index) {
             final dayNumbers = ['13', '14', '15', '16', '17', '18', '19'];
+            final progressList = [0.1, 0.3, 0.5, 0.8, 0.6, 0.9, 0.2];
             return GestureDetector(
               onTap: () {
                 setState(() {
@@ -145,6 +146,7 @@ class _HomePageState extends State<HomePage> {
               child: CalendarDayItem(
                 day: dayNumbers[index],
                 isActive: selectedDayIndex == index,
+                progress: progressList[index],
               ),
             );
           }),
@@ -213,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                       'Carbs',
                       style: TextStyle(
                         fontSize: 14, // Reduced from 16
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.normal, // Changed to normal
                         color: Colors.black,
                       ),
                     ),
@@ -294,7 +296,8 @@ class _HomePageState extends State<HomePage> {
                               'Protein',
                               style: TextStyle(
                                 fontSize: 12,
-                                fontWeight: FontWeight.w500,
+                                fontWeight:
+                                    FontWeight.normal, // Changed to normal
                                 color: Colors.black,
                               ),
                             ),
@@ -364,7 +367,8 @@ class _HomePageState extends State<HomePage> {
                               'Fat',
                               style: TextStyle(
                                 fontSize: 12,
-                                fontWeight: FontWeight.w500,
+                                fontWeight:
+                                    FontWeight.normal, // Changed to normal
                                 color: Colors.black,
                               ),
                             ),
