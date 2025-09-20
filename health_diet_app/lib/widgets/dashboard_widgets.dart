@@ -168,7 +168,6 @@ class MealItemCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
-        boxShadow: const [AppShadows.cardShadow],
       ),
       padding: const EdgeInsets.all(AppConstants.paddingMedium),
       child: Row(

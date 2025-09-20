@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: const Color(0xFFF6F6F6),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(AppConstants.paddingMedium),
@@ -76,32 +76,12 @@ class _HomePageState extends State<HomePage> {
         ),
         Row(
           children: [
-            Container(
-              width: 32,
-              height: 32,
-              decoration: BoxDecoration(
-                color: AppColors.lightGrey,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Icon(
-                Icons.search,
-                color: AppColors.darkText,
-                size: 18,
-              ),
-            ),
-            const SizedBox(width: 8),
-            Container(
-              width: 32,
-              height: 32,
-              decoration: BoxDecoration(
-                color: AppColors.lightGrey,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Icon(
-                Icons.notifications_outlined,
-                color: AppColors.darkText,
-                size: 18,
-              ),
+            const Icon(Icons.search, color: AppColors.darkText, size: 24),
+            const SizedBox(width: 16),
+            const Icon(
+              Icons.notifications_outlined,
+              color: AppColors.darkText,
+              size: 24,
             ),
           ],
         ),
