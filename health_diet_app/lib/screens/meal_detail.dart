@@ -43,7 +43,6 @@ class _MealDetailPageState extends State<MealDetailPage> {
                 child: Column(
                   children: [
                     _buildMealInfoContent(meal),
-                    _buildServingAndPreparationContent(),
                     _buildIngredientsSectionContent(),
                   ],
                 ),
@@ -249,6 +248,91 @@ class _MealDetailPageState extends State<MealDetailPage> {
                     ),
                     const SizedBox(width: 8),
                     _buildMacroBadge(Icons.waves, '5g', AppColors.fatPink),
+                  ],
+                ),
+                const SizedBox(height: 32),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: Text(
+                        'Warm and wholesome breakfast made from rolled oats simmered until creamy, topped with a mix of fresh berries for natural sweetness, antioxidants, and a burst of flavor',
+                        style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    Divider(color: Colors.grey[300], thickness: 1),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0,
+                        vertical: 16.0,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          // Servings Section
+                          Column(
+                            children: <Widget>[
+                              const Text(
+                                'Servings',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Row(
+                                children: <Widget>[
+                                  IconButton(
+                                    icon: const Icon(
+                                      Icons.remove_circle_outline,
+                                    ),
+                                    onPressed: () {},
+                                  ),
+                                  const Text(
+                                    '1',
+                                    style: TextStyle(fontSize: 16),
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(Icons.add_circle_outline),
+                                    onPressed: () {},
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          // Preparation Section
+                          const Column(
+                            children: <Widget>[
+                              Text(
+                                'Preparation',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text('5 Mins', style: TextStyle(fontSize: 16)),
+                            ],
+                          ),
+                          // Cook Section
+                          const Column(
+                            children: <Widget>[
+                              Text(
+                                'Cook',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text('20 mins', style: TextStyle(fontSize: 16)),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ],
