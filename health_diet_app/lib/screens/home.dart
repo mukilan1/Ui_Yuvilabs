@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(height: 2), // Reduced spacing
                     const Text(
-                      '120 g / 250 g',
+                      '120g / 250g',
                       style: TextStyle(
                         fontSize: 16, // Reduced from 18
                         fontWeight: FontWeight.bold,
@@ -283,7 +283,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             const Text(
-                              '65 g / 100 g',
+                              '65g / 100g',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -354,7 +354,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             const Text(
-                              '40 g / 70 g',
+                              '40g / 70g',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,

@@ -233,7 +233,7 @@ class MealItemCard extends StatelessWidget {
                         color: Color(0xFF333333),
                       ),
                     ),
-                    const SizedBox(width: 12),
+                    const Spacer(),
                     // Macronutrient badges inline
                     Row(
                       children: [
@@ -279,7 +279,7 @@ class MealItemCard extends StatelessWidget {
           Icon(icon, size: 12, color: color),
           const SizedBox(width: 2),
           Text(
-            value,
+            '${value}g',
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.normal, // Changed from w600 to normal

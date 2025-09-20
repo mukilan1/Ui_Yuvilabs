@@ -83,17 +83,17 @@ class AppConstants {
       'name': 'Oatmeal with Berries',
       'calories': '250 kcal',
       'image': 'placeholder_oatmeal',
-      'carbs': '40g',
-      'protein': '12g',
-      'fat': '5g',
+      'carbs': '40',
+      'protein': '12',
+      'fat': '5',
     },
     {
       'name': 'Grilled Chicken Salad',
       'calories': '180 kcal',
       'image': 'placeholder_salad',
-      'carbs': '6g',
-      'protein': '34g',
-      'fat': '8g',
+      'carbs': '6',
+      'protein': '34',
+      'fat': '8',
     },
   ];
 
