@@ -39,11 +39,16 @@ class _MealDetailPageState extends State<MealDetailPage> {
               const SizedBox(height: AppConstants.spacingLarge),
               _buildFoodImage(),
               const SizedBox(height: AppConstants.spacingLarge),
-              _buildMealInfo(meal),
-              const SizedBox(height: AppConstants.spacingLarge),
-              _buildServingAndPreparation(),
-              const SizedBox(height: AppConstants.spacingLarge),
-              _buildIngredientsSection(),
+              // Combined content sections without container
+              Column(
+                children: [
+                  _buildMealInfoContent(meal),
+                  const SizedBox(height: AppConstants.spacingLarge),
+                  _buildServingAndPreparationContent(),
+                  const SizedBox(height: AppConstants.spacingLarge),
+                  _buildIngredientsSectionContent(),
+                ],
+              ),
               const SizedBox(height: AppConstants.spacingLarge),
             ],
           ),
@@ -108,116 +113,106 @@ class _MealDetailPageState extends State<MealDetailPage> {
     );
   }
 
-  Widget _buildMealInfo(Map<String, dynamic> meal) {
+  Widget _buildMealInfoContent(Map<String, dynamic> meal) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.paddingMedium,
-      ),
-      child: Container(
-        padding: const EdgeInsets.all(AppConstants.paddingMedium),
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
-          boxShadow: const [AppShadows.cardShadow],
-        ),
-        child: Row(
-          children: [
-            // Left Section
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Title
-                  Row(
-                    children: [
-                      Expanded(
-                        child: RichText(
-                          text: const TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Oatmeal with Berries ',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.darkText,
-                                  fontFamily: 'Roboto',
-                                ),
-                              ),
-                              TextSpan(
-                                text: '🫐',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontFamily: 'Roboto',
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const Icon(
-                        Icons.download_outlined,
-                        color: Colors.black,
-                        size: 16,
-                      ),
-                      const SizedBox(width: 8),
-                      const Icon(
-                        Icons.share_outlined,
-                        color: Colors.black,
-                        size: 16,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: AppConstants.spacingSmall),
-                  // Calorie Count and Macronutrient Badges in same row
-                  Row(
-                    children: [
-                      // Calorie Count
-                      RichText(
-                        text: TextSpan(
+      padding: const EdgeInsets.all(AppConstants.paddingMedium),
+      child: Row(
+        children: [
+          // Left Section
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Title
+                Row(
+                  children: [
+                    Expanded(
+                      child: RichText(
+                        text: const TextSpan(
                           children: [
                             TextSpan(
-                              text: '250',
-                              style: const TextStyle(
-                                fontSize: 24,
+                              text: 'Oatmeal with Berries ',
+                              style: TextStyle(
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.darkText,
+                                fontFamily: 'Roboto',
                               ),
                             ),
                             TextSpan(
-                              text: ' kcal',
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.normal,
-                                color: AppColors.darkText,
+                              text: '🫐',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: 'Roboto',
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(width: 16),
-                      // Macronutrient Badges
-                      _buildMacroBadge(
-                        Icons.water_drop,
-                        '40g',
-                        AppColors.carbsBlue,
+                    ),
+                    const Icon(
+                      Icons.download_outlined,
+                      color: Colors.black,
+                      size: 16,
+                    ),
+                    const SizedBox(width: 8),
+                    const Icon(
+                      Icons.share_outlined,
+                      color: Colors.black,
+                      size: 16,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: AppConstants.spacingSmall),
+                // Calorie Count and Macronutrient Badges in same row
+                Row(
+                  children: [
+                    // Calorie Count
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '250',
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.darkText,
+                            ),
+                          ),
+                          TextSpan(
+                            text: ' kcal',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
+                              color: AppColors.darkText,
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 8),
-                      _buildMacroBadge(
-                        Icons.restaurant_menu,
-                        '10g',
-                        AppColors.proteinPurple,
-                      ),
-                      const SizedBox(width: 8),
-                      _buildMacroBadge(Icons.waves, '5g', AppColors.fatPink),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                    const SizedBox(width: 16),
+                    // Macronutrient Badges
+                    _buildMacroBadge(
+                      Icons.water_drop,
+                      '40g',
+                      AppColors.carbsBlue,
+                    ),
+                    const SizedBox(width: 8),
+                    _buildMacroBadge(
+                      Icons.restaurant_menu,
+                      '10g',
+                      AppColors.proteinPurple,
+                    ),
+                    const SizedBox(width: 8),
+                    _buildMacroBadge(Icons.waves, '5g', AppColors.fatPink),
+                  ],
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -247,59 +242,47 @@ class _MealDetailPageState extends State<MealDetailPage> {
     );
   }
 
-  Widget _buildServingAndPreparation() {
+  Widget _buildServingAndPreparationContent() {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: AppConstants.paddingMedium,
       ),
-      child: Container(
-        padding: const EdgeInsets.all(AppConstants.paddingMedium),
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
-          boxShadow: const [AppShadows.cardShadow],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
-              children: [
-                const Text(
-                  'Serving',
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.bodyText,
-                  ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(
+            children: [
+              const Text(
+                'Serving',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.bodyText,
                 ),
-                const SizedBox(height: AppConstants.spacingSmall),
-                ServingCounter(
-                  initialValue: servingCount,
-                  onChanged: (value) {
-                    setState(() {
-                      servingCount = value;
-                    });
-                  },
-                ),
-              ],
-            ),
-            const PrepInfoItem(
-              icon: Icons.timer,
-              label: 'Prep',
-              value: '5 min',
-            ),
-            const PrepInfoItem(
-              icon: Icons.local_fire_department,
-              label: 'Cook',
-              value: '3 min',
-            ),
-          ],
-        ),
+              ),
+              const SizedBox(height: AppConstants.spacingSmall),
+              ServingCounter(
+                initialValue: servingCount,
+                onChanged: (value) {
+                  setState(() {
+                    servingCount = value;
+                  });
+                },
+              ),
+            ],
+          ),
+          const PrepInfoItem(icon: Icons.timer, label: 'Prep', value: '5 min'),
+          const PrepInfoItem(
+            icon: Icons.local_fire_department,
+            label: 'Cook',
+            value: '3 min',
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildIngredientsSection() {
+  Widget _buildIngredientsSectionContent() {
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: AppConstants.paddingMedium,
