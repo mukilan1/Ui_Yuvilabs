@@ -19,7 +19,7 @@ class HealthDietApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
-        fontFamily: 'Nunito',
+        fontFamily: 'Roboto',
         scaffoldBackgroundColor: AppColors.white,
       ),
       home: const MainScreen(),

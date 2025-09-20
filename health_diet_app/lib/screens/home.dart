@@ -173,12 +173,10 @@ class _HomePageState extends State<HomePage> {
           children: [
             // Large Carbs card on the left
             Expanded(
-              flex: 1,
+              flex: 3,
               child: Container(
-                height: 220, // Increased from 200
-                margin: const EdgeInsets.only(
-                  right: AppConstants.spacingMedium - 15,
-                ),
+                height: 210,
+                margin: const EdgeInsets.only(right: 3),
                 decoration: BoxDecoration(
                   color: const Color(0xFFC6E7FE), // New carbs color
                   borderRadius: BorderRadius.circular(
@@ -242,17 +240,17 @@ class _HomePageState extends State<HomePage> {
             ),
             // Right side stacked cards
             Expanded(
-              flex: 1,
+              flex: 3,
               child: Column(
                 children: [
                   // Protein card
                   Container(
-                    height: 110, // Increased from 100
+                    height: 100, // Increased from 100
                     margin: const EdgeInsets.fromLTRB(
                       10,
                       0,
                       0,
-                      AppConstants.spacingMedium,
+                      AppConstants.spacingSmall,
                     ),
                     width: 180,
                     decoration: BoxDecoration(
