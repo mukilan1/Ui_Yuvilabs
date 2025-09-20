@@ -57,7 +57,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
 
   Widget _buildTopBar() {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, top: 16.0, right: 16.0),
+      padding: const EdgeInsets.only(left: 16.0, top: 20, right: 16.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -273,7 +273,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
                       child: Column(
                         children: [
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 'Servings',
@@ -300,7 +300,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
                           ),
                           const SizedBox(height: 8),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
                                 children: [
