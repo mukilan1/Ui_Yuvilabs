@@ -326,6 +326,96 @@ class _MealDetailPageState extends State<MealDetailPage> {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 300,
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        child: Card(
+                          color: Color(0xFFFEC777),
+                          margin: EdgeInsets.all(8.0),
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  'Directions',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.keyboard_arrow_down,
+                                  color: Colors.black,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 50,
+                        left: 0,
+                        right: 0,
+                        child: Card(
+                          color: Color(0xFFDAD8FF),
+                          margin: EdgeInsets.all(8.0),
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text(
+                                      'Ingredients',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    Icon(
+                                      Icons.keyboard_arrow_up,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
+                                Divider(color: Colors.grey[400]),
+                                ListTile(
+                                  leading: Image.asset(
+                                    'assets/images/honey_icon.png',
+                                    width: 40,
+                                    height: 40,
+                                  ),
+                                  title: Text('Honey'),
+                                  trailing: Text('10 gr'),
+                                ),
+                                ListTile(
+                                  leading: Image.asset(
+                                    'assets/images/berries_icon.png',
+                                    width: 40,
+                                    height: 40,
+                                  ),
+                                  title: Text('Berries'),
+                                  trailing: Text('120 gr'),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -353,46 +443,6 @@ class _MealDetailPageState extends State<MealDetailPage> {
               fontWeight: FontWeight.w500,
               color: color,
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildServingAndPreparationContent() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.paddingMedium,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Column(
-            children: [
-              const Text(
-                'Serving',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.bodyText,
-                ),
-              ),
-              const SizedBox(height: AppConstants.spacingSmall),
-              ServingCounter(
-                initialValue: servingCount,
-                onChanged: (value) {
-                  setState(() {
-                    servingCount = value;
-                  });
-                },
-              ),
-            ],
-          ),
-          const PrepInfoItem(icon: Icons.timer, label: 'Prep', value: '5 min'),
-          const PrepInfoItem(
-            icon: Icons.local_fire_department,
-            label: 'Cook',
-            value: '3 min',
           ),
         ],
       ),
