@@ -97,11 +97,11 @@ class CalendarDayItem extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         SizedBox(
-          width: AppConstants.calendarItemSize + 10,
-          height: AppConstants.calendarItemSize + 10,
+          width: AppConstants.calendarItemSize + (isActive ? 6 : 10),
+          height: AppConstants.calendarItemSize + (isActive ? 6 : 10),
           child: CircularProgressIndicator(
             value: progress,
-            strokeWidth: 3,
+            strokeWidth: 2, // Thinned from 3
             backgroundColor: Colors.grey[300],
             valueColor: AlwaysStoppedAnimation<Color>(
               isActive ? AppColors.successGreen : Colors.black,
@@ -114,9 +114,6 @@ class CalendarDayItem extends StatelessWidget {
           decoration: BoxDecoration(
             color: isActive ? AppColors.primaryGreen : AppColors.white,
             shape: BoxShape.circle,
-            border: isActive
-                ? Border.all(color: AppColors.successGreen, width: 2)
-                : null,
           ),
           child: Center(
             child: Text(
