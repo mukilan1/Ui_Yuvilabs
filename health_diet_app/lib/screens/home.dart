@@ -155,7 +155,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               flex: 3,
               child: Container(
-                height: 210,
+                height: 190,
                 margin: const EdgeInsets.only(right: 3),
                 decoration: BoxDecoration(
                   color: const Color(0xFFC6E7FE), // New carbs color
@@ -225,13 +225,8 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   // Protein card
                   Container(
-                    height: 100, // Increased from 100
-                    margin: const EdgeInsets.fromLTRB(
-                      10,
-                      0,
-                      0,
-                      AppConstants.spacingSmall,
-                    ),
+                    height: 90, // Increased by 10
+                    margin: const EdgeInsets.fromLTRB(10, 0, 0, 10),
                     width: 180,
                     decoration: BoxDecoration(
                       color: const Color(0xFFFCC7FF), // New protein color
@@ -302,7 +297,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   // Fat card
                   Container(
-                    height: 100, // Increased from 90
+                    height: 90, // Increased by 10
                     width: 180,
                     margin: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                     decoration: BoxDecoration(
