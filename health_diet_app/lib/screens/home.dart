@@ -110,48 +110,56 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildCalendarRow() {
-    return Column(
-      children: [
-        // Week day labels
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: ['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day) {
-            return SizedBox(
-              width: AppConstants.calendarItemSize,
-              child: Text(
-                day,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.mutedText,
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 2.0, vertical: 16.0),
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
+        border: Border.all(color: AppColors.lightGrey, width: 1),
+      ),
+      child: Column(
+        children: [
+          // Week day labels
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: ['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day) {
+              return SizedBox(
+                width: AppConstants.calendarItemSize,
+                child: Text(
+                  day,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.darkText,
+                  ),
                 ),
-              ),
-            );
-          }).toList(),
-        ),
-        const SizedBox(height: 8),
-        // Day numbers
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: List.generate(7, (index) {
-            final dayNumbers = ['13', '14', '15', '16', '17', '18', '19'];
-            final progressList = [0.1, 0.3, 0.5, 0.8, 0.6, 0.9, 0.2];
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  selectedDayIndex = index;
-                });
-              },
-              child: CalendarDayItem(
-                day: dayNumbers[index],
-                isActive: selectedDayIndex == index,
-                progress: progressList[index],
-              ),
-            );
-          }),
-        ),
-      ],
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 16),
+          // Day numbers
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: List.generate(7, (index) {
+              final dayNumbers = ['13', '14', '15', '16', '17', '18', '19'];
+              final progressList = [0.1, 0.3, 0.5, 0.8, 0.6, 0.9, 0.2];
+              return GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedDayIndex = index;
+                  });
+                },
+                child: CalendarDayItem(
+                  day: dayNumbers[index],
+                  isActive: selectedDayIndex == index,
+                  progress: progressList[index],
+                ),
+              );
+            }),
+          ),
+        ],
+      ),
     );
   }
 
