@@ -101,7 +101,7 @@ class CalendarDayItem extends StatelessWidget {
           height: AppConstants.calendarItemSize + 10,
           child: CircularProgressIndicator(
             value: progress,
-            strokeWidth: 2, // Thinned from 3
+            strokeWidth: 1, // Made thinner
             backgroundColor:
                 AppColors.white, // Changed from grey[300] to match background
             valueColor: AlwaysStoppedAnimation<Color>(
@@ -197,14 +197,14 @@ class MealItemCard extends StatelessWidget {
                         return const Icon(
                           Icons.bakery_dining,
                           color: Color(0xFF8D6E63),
-                          size: 18,
+                          size: 12,
                         );
                       },
                     )
                   : const Icon(
                       Icons.restaurant,
                       color: Color(0xFF8D6E63),
-                      size: 18,
+                      size: 12,
                     ),
             ),
           ),
