@@ -279,21 +279,21 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                 'Servings',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 16,
+                                  fontSize: 12,
                                 ),
                               ),
                               Text(
                                 'Preparation',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 16,
+                                  fontSize: 12,
                                 ),
                               ),
                               Text(
                                 'Cook',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 16,
+                                  fontSize: 12,
                                 ),
                               ),
                             ],
@@ -310,15 +310,15 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                     ),
                                     onPressed: () {},
                                   ),
-                                  Text('1', style: TextStyle(fontSize: 14)),
+                                  Text('1', style: TextStyle(fontSize: 11)),
                                   IconButton(
                                     icon: const Icon(Icons.add_circle_outline),
                                     onPressed: () {},
                                   ),
                                 ],
                               ),
-                              Text('5 Mins', style: TextStyle(fontSize: 14)),
-                              Text('20 mins', style: TextStyle(fontSize: 14)),
+                              Text('5 Mins', style: TextStyle(fontSize: 11)),
+                              Text('20 mins', style: TextStyle(fontSize: 11)),
                             ],
                           ),
                         ],
