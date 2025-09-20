@@ -36,17 +36,13 @@ class _MealDetailPageState extends State<MealDetailPage> {
           child: Column(
             children: [
               _buildTopBar(),
-              const SizedBox(height: AppConstants.spacingLarge),
               _buildFoodImage(),
-              const SizedBox(height: AppConstants.spacingLarge),
               Container(
                 color: Colors.white,
                 child: Column(
                   children: [
                     _buildMealInfoContent(meal),
-                    const SizedBox(height: AppConstants.spacingLarge),
                     _buildServingAndPreparationContent(),
-                    const SizedBox(height: AppConstants.spacingLarge),
                     _buildIngredientsSectionContent(),
                   ],
                 ),
@@ -61,7 +57,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
 
   Widget _buildTopBar() {
     return Padding(
-      padding: const EdgeInsets.all(AppConstants.paddingMedium),
+      padding: const EdgeInsets.only(left: 16.0, top: 16.0, right: 16.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -112,8 +108,8 @@ class _MealDetailPageState extends State<MealDetailPage> {
     return Center(
       child: Image.asset(
         'assets/Food_Bowl.png',
-        width: AppConstants.foodImageLarge * 1.4,
-        height: AppConstants.foodImageLarge * 1.4,
+        width: AppConstants.foodImageLarge * 1.6,
+        height: AppConstants.foodImageLarge * 1.6,
         fit: BoxFit.contain,
       ),
     );
