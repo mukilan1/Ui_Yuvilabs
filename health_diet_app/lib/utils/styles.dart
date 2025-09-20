@@ -85,7 +85,7 @@ class AppTextStyles {
   static const TextStyle foodTitle = TextStyle(
     fontFamily: fontFamily,
     fontSize: 16,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.normal, // Changed from bold to normal
     color: AppColors.darkText,
   );
 

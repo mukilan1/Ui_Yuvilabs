@@ -85,6 +85,14 @@ class MealItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Add emoji based on food name
+    String emoji = '';
+    if (foodName.contains('Oatmeal')) {
+      emoji = ' 🫐';
+    } else if (foodName.contains('Chicken') || foodName.contains('Salad')) {
+      emoji = ' 🥬';
+    }
+
     return Container(
       width: AppConstants.mealCardWidth,
       height: AppConstants.mealCardHeight,
@@ -96,12 +104,20 @@ class MealItemCard extends StatelessWidget {
       padding: const EdgeInsets.all(AppConstants.paddingMedium),
       child: Row(
         children: [
+          // 3D icon with shadow
           Container(
             width: AppConstants.foodImageSmall,
             height: AppConstants.foodImageSmall,
             decoration: const BoxDecoration(
-              color: AppColors.lightGrey,
+              color: Colors.white,
               shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  offset: Offset(2, 2),
+                  blurRadius: 4,
+                ),
+              ],
             ),
             child: ClipOval(
               child: imagePlaceholder == 'placeholder_oatmeal'
@@ -110,16 +126,16 @@ class MealItemCard extends StatelessWidget {
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
                         return const Icon(
-                          Icons.fastfood,
-                          color: AppColors.mutedText,
-                          size: 24,
+                          Icons.bakery_dining,
+                          color: Color(0xFF8D6E63),
+                          size: 32,
                         );
                       },
                     )
                   : const Icon(
                       Icons.restaurant,
-                      color: AppColors.mutedText,
-                      size: 24,
+                      color: Color(0xFF8D6E63),
+                      size: 32,
                     ),
             ),
           ),
@@ -129,45 +145,80 @@ class MealItemCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(foodName, style: AppTextStyles.foodTitle),
+                // Title with emoji
+                Text(
+                  '$foodName$emoji',
+                  style: AppTextStyles.foodTitle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 const SizedBox(height: 4),
-                Text(calories, style: AppTextStyles.foodCalories),
+                // Calories and macros in the same line
+                Row(
+                  children: [
+                    // Larger calorie count
+                    Text(
+                      calories,
+                      style: const TextStyle(
+                        fontSize: 18, // Increased from 16
+                        fontWeight: FontWeight.bold, // Reverted to bold
+                        color: Color(0xFF333333),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    // Macronutrient badges inline
+                    Row(
+                      children: [
+                        _buildMacroBadgeWithIcon(
+                          Icons.water_drop,
+                          AppColors.carbsBlue,
+                          carbs,
+                        ),
+                        const SizedBox(width: 4),
+                        _buildMacroBadgeWithIcon(
+                          Icons.restaurant_menu,
+                          AppColors.proteinPurple,
+                          protein,
+                        ),
+                        const SizedBox(width: 4),
+                        _buildMacroBadgeWithIcon(
+                          Icons.waves,
+                          AppColors.fatPink,
+                          fat,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ],
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  _buildMacroIcon(AppColors.carbsBlue, carbs),
-                  const SizedBox(width: 4),
-                  _buildMacroIcon(AppColors.proteinPurple, protein),
-                  const SizedBox(width: 4),
-                  _buildMacroIcon(AppColors.fatPink, fat),
-                ],
-              ),
-            ],
           ),
         ],
       ),
     );
   }
 
-  Widget _buildMacroIcon(Color color, String value) {
+  Widget _buildMacroBadgeWithIcon(IconData icon, Color color, String value) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
       decoration: BoxDecoration(
         color: color.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
       ),
-      child: Text(
-        value,
-        style: TextStyle(
-          fontSize: 10,
-          fontWeight: FontWeight.w600,
-          color: color,
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 12, color: color),
+          const SizedBox(width: 2),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.normal, // Changed from w600 to normal
+              color: color,
+            ),
+          ),
+        ],
       ),
     );
   }

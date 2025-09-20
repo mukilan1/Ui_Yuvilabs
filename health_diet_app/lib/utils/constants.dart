@@ -36,7 +36,7 @@ class AppConstants {
   static const double dailyCardWidth = 156.0;
   static const double dailyCardHeight = 96.0;
   static const double mealCardWidth = 358.0;
-  static const double mealCardHeight = 80.0;
+  static const double mealCardHeight = 100.0; // Increased from 80.0
 
   // Navigation
   static const double bottomNavHeight = 72.0;
