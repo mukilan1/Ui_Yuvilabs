@@ -365,7 +365,10 @@ class _MealDetailPageState extends State<MealDetailPage> {
                         right: 0,
                         child: Card(
                           color: Color(0xFFDAD8FF),
-                          margin: EdgeInsets.all(8.0),
+                          margin: EdgeInsets.symmetric(
+                            horizontal: 2.0,
+                            vertical: 8.0,
+                          ),
                           child: Padding(
                             padding: EdgeInsets.all(16.0),
                             child: Column(
@@ -389,21 +392,24 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                     ),
                                   ],
                                 ),
-                                Divider(color: Colors.grey[400]),
                                 ListTile(
-                                  leading: Image.asset(
-                                    'assets/images/honey_icon.png',
-                                    width: 40,
-                                    height: 40,
+                                  contentPadding: EdgeInsets.symmetric(
+                                    vertical: 4.0,
+                                    horizontal: 0.0,
                                   ),
                                   title: Text('Honey'),
                                   trailing: Text('10 gr'),
                                 ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 16.0,
+                                  ),
+                                  child: Divider(color: Colors.grey[400]),
+                                ),
                                 ListTile(
-                                  leading: Image.asset(
-                                    'assets/images/berries_icon.png',
-                                    width: 40,
-                                    height: 40,
+                                  contentPadding: EdgeInsets.symmetric(
+                                    vertical: 4.0,
+                                    horizontal: 0.0,
                                   ),
                                   title: Text('Berries'),
                                   trailing: Text('120 gr'),
