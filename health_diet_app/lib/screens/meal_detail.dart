@@ -30,7 +30,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
         };
 
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: const Color(0xFFEBF3EC),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -39,15 +39,17 @@ class _MealDetailPageState extends State<MealDetailPage> {
               const SizedBox(height: AppConstants.spacingLarge),
               _buildFoodImage(),
               const SizedBox(height: AppConstants.spacingLarge),
-              // Combined content sections without container
-              Column(
-                children: [
-                  _buildMealInfoContent(meal),
-                  const SizedBox(height: AppConstants.spacingLarge),
-                  _buildServingAndPreparationContent(),
-                  const SizedBox(height: AppConstants.spacingLarge),
-                  _buildIngredientsSectionContent(),
-                ],
+              Container(
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    _buildMealInfoContent(meal),
+                    const SizedBox(height: AppConstants.spacingLarge),
+                    _buildServingAndPreparationContent(),
+                    const SizedBox(height: AppConstants.spacingLarge),
+                    _buildIngredientsSectionContent(),
+                  ],
+                ),
               ),
               const SizedBox(height: AppConstants.spacingLarge),
             ],
@@ -103,7 +105,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
       width: AppConstants.foodImageLarge,
       height: AppConstants.foodImageLarge,
       decoration: BoxDecoration(
-        color: AppColors.lightGrey,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
         boxShadow: const [AppShadows.imageShadow],
       ),
