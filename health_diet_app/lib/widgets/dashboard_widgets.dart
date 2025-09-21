@@ -156,11 +156,8 @@ class MealItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // Add emoji based on food name
     String emoji = '';
-    if (foodName.contains('Oatmeal')) {
-      emoji = ' 🫐';
-    }
 
-    // Special handling for Grilled Chicken Salad
+    // Special handling for Grilled Chicken Salad and Oatmeal
     Widget titleWidget;
     if (foodName.contains('Grilled Chicken Salad')) {
       titleWidget = Row(
@@ -174,6 +171,24 @@ class MealItemCard extends StatelessWidget {
           const SizedBox(width: 4),
           Image.asset(
             'assets/Grilled_Chicken_Salad_1.png',
+            width: 20,
+            height: 20,
+            fit: BoxFit.contain,
+          ),
+        ],
+      );
+    } else if (foodName.contains('Oatmeal')) {
+      titleWidget = Row(
+        children: [
+          Text(
+            foodName,
+            style: AppTextStyles.foodTitle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(width: 4),
+          Image.asset(
+            'assets/Berries_1.png',
             width: 20,
             height: 20,
             fit: BoxFit.contain,
