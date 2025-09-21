@@ -329,13 +329,16 @@ class MealItemCard extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-      decoration: icon == Icons.water_drop
-          ? BoxDecoration(
-              // ignore: deprecated_member_use
-              color: color.withOpacity(0.15),
-              borderRadius: BorderRadius.circular(12),
-            )
-          : null,
+      decoration: BoxDecoration(
+        color: icon == Icons.water_drop
+            ? color.withOpacity(0.15)
+            : icon == Icons.restaurant_menu
+            ? const Color(0xFFFDEDFD)
+            : icon == Icons.waves
+            ? const Color(0xFFFFEFF0)
+            : color.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

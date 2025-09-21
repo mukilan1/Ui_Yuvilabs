@@ -535,13 +535,13 @@ class _MealDetailPageState extends State<MealDetailPage> {
     } else if (icon == Icons.restaurant_menu) {
       imagePath = 'assets/Leaf_g.png';
       decoration = BoxDecoration(
-        color: color.withOpacity(0.15),
+        color: const Color(0xFFFFEBFF),
         borderRadius: BorderRadius.circular(12),
       );
     } else if (icon == Icons.waves) {
       imagePath = 'assets/Vapour_g.png';
       decoration = BoxDecoration(
-        color: color.withOpacity(0.15),
+        color: const Color(0xFFFEF0F0),
         borderRadius: BorderRadius.circular(12),
       );
     } else {
