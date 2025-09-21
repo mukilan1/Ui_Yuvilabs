@@ -158,8 +158,35 @@ class MealItemCard extends StatelessWidget {
     String emoji = '';
     if (foodName.contains('Oatmeal')) {
       emoji = ' 🫐';
-    } else if (foodName.contains('Chicken') || foodName.contains('Salad')) {
-      emoji = ' 🥬';
+    }
+
+    // Special handling for Grilled Chicken Salad
+    Widget titleWidget;
+    if (foodName.contains('Grilled Chicken Salad')) {
+      titleWidget = Row(
+        children: [
+          Text(
+            foodName,
+            style: AppTextStyles.foodTitle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(width: 4),
+          Image.asset(
+            'assets/Grilled_Chicken_Salad_1.png',
+            width: 20,
+            height: 20,
+            fit: BoxFit.contain,
+          ),
+        ],
+      );
+    } else {
+      titleWidget = Text(
+        '$foodName$emoji',
+        style: AppTextStyles.foodTitle,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      );
     }
 
     return Container(
@@ -225,13 +252,8 @@ class MealItemCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Title with emoji
-                Text(
-                  '$foodName$emoji',
-                  style: AppTextStyles.foodTitle,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
+                // Title with emoji or image
+                titleWidget,
                 const SizedBox(height: 4),
                 // Calories and macros in the same line
                 Row(
