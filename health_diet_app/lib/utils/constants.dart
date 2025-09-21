@@ -84,16 +84,16 @@ class AppConstants {
       'calories': '250 kcal',
       'image': 'placeholder_oatmeal',
       'carbs': '40',
-      'protein': '12',
+      'protein': '10',
       'fat': '5',
     },
     {
       'name': 'Grilled Chicken Salad',
       'calories': '180 kcal',
       'image': 'placeholder_salad',
-      'carbs': '6',
-      'protein': '34',
-      'fat': '8',
+      'carbs': '40',
+      'protein': '10',
+      'fat': '5',
     },
   ];
 

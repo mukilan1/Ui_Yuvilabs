@@ -301,16 +301,30 @@ class MealItemCard extends StatelessWidget {
   }
 
   Widget _buildMacroBadgeWithIcon(IconData icon, Color color, String value) {
+    String imagePath;
+    if (icon == Icons.water_drop) {
+      imagePath = 'assets/Chicken_g.png';
+    } else if (icon == Icons.restaurant_menu) {
+      imagePath = 'assets/Leaf_g.png';
+    } else if (icon == Icons.waves) {
+      imagePath = 'assets/Vapour_g.png';
+    } else {
+      // fallback
+      return Icon(icon, size: 12, color: color);
+    }
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-      decoration: BoxDecoration(
-        color: color.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(12),
-      ),
+      decoration: icon == Icons.water_drop
+          ? BoxDecoration(
+              color: color.withOpacity(0.15),
+              borderRadius: BorderRadius.circular(12),
+            )
+          : null,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 12, color: color),
+          Image.asset(imagePath, width: 12, height: 12, fit: BoxFit.contain),
           const SizedBox(width: 2),
           Text(
             '${value}g',
