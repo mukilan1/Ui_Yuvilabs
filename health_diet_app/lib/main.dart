@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'screens/home.dart';
 import 'screens/meal_detail.dart';
 import 'screens/statistics.dart';
@@ -19,7 +20,7 @@ class HealthDietApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
-        fontFamily: 'Roboto',
+        fontFamily: GoogleFonts.poppins().fontFamily,
         scaffoldBackgroundColor: AppColors.white,
       ),
       home: const MainScreen(),

@@ -3,7 +3,7 @@ import 'colors.dart';
 
 class AppTextStyles {
   // Font Family
-  static const String fontFamily = 'Nunito';
+  static const String fontFamily = 'Poppins';
 
   // Header Styles
   static const TextStyle headerLarge = TextStyle(

@@ -38,6 +38,9 @@ dependencies:
   # Material Design Icons
   flutter_material_design_icons: ^1.1.7447
 
+  # Google Fonts
+  google_fonts: ^6.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

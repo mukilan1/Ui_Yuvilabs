@@ -177,7 +177,6 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.darkText,
-                                fontFamily: 'Roboto',
                               ),
                             ),
                             WidgetSpan(
