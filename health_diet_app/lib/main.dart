@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'screens/home.dart';
 import 'screens/meal_detail.dart';
-import 'screens/statistics.dart';
 import 'widgets/dashboard_widgets.dart';
 import 'utils/colors.dart';
 
@@ -48,7 +47,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> screens = [
     const HomePage(),
-    const StatisticsPage(),
+    const Center(child: Text('Tracker - Coming Soon')),
     const Center(child: Text('Add Meal')),
     const Center(child: Text('Habits')),
     const Center(child: Text('Settings')),
