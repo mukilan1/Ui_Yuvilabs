@@ -204,107 +204,111 @@ class MealItemCard extends StatelessWidget {
     }
 
     return Container(
-      width: AppConstants.mealCardWidth,
+      width: AppConstants.mealCardWidth + 20,
       height: AppConstants.mealCardHeight,
+      margin: const EdgeInsets.symmetric(horizontal: 2),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(AppConstants.radiusMedium),
       ),
       padding: const EdgeInsets.all(AppConstants.paddingMedium),
-      child: Row(
-        children: [
-          // 3D icon with shadow
-          Container(
-            width: 50.0,
-            height: 50.0,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Row(
+          children: [
+            // 3D icon with shadow
+            Container(
+              width: 50.0,
+              height: 50.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: imagePlaceholder == 'placeholder_oatmeal'
+                  ? Image.asset(
+                      'assets/Food_Bowl_1.png',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.contain,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(
+                          Icons.bakery_dining,
+                          color: Color(0xFF8D6E63),
+                          size: 12,
+                        );
+                      },
+                    )
+                  : imagePlaceholder == 'placeholder_salad'
+                  ? Image.asset(
+                      'assets/Garlic_chicken.png',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.contain,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(
+                          Icons.restaurant,
+                          color: Color(0xFF8D6E63),
+                          size: 12,
+                        );
+                      },
+                    )
+                  : const Icon(
+                      Icons.restaurant,
+                      color: Color(0xFF8D6E63),
+                      size: 12,
+                    ),
             ),
-            child: imagePlaceholder == 'placeholder_oatmeal'
-                ? Image.asset(
-                    'assets/Food_Bowl_1.png',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.contain,
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Icon(
-                        Icons.bakery_dining,
-                        color: Color(0xFF8D6E63),
-                        size: 12,
-                      );
-                    },
-                  )
-                : imagePlaceholder == 'placeholder_salad'
-                ? Image.asset(
-                    'assets/Garlic_chicken.png',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.contain,
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Icon(
-                        Icons.restaurant,
-                        color: Color(0xFF8D6E63),
-                        size: 12,
-                      );
-                    },
-                  )
-                : const Icon(
-                    Icons.restaurant,
-                    color: Color(0xFF8D6E63),
-                    size: 12,
-                  ),
-          ),
-          const SizedBox(width: AppConstants.spacingMedium),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Title with emoji or image
-                titleWidget,
-                const SizedBox(height: 4),
-                // Calories and macros in the same line
-                Row(
-                  children: [
-                    // Larger calorie count
-                    Text(
-                      calories,
-                      style: const TextStyle(
-                        fontSize: 18, // Increased from 16
-                        fontWeight: FontWeight.bold, // Reverted to bold
-                        color: Color(0xFF333333),
+            const SizedBox(width: AppConstants.spacingMedium),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Title with emoji or image
+                  titleWidget,
+                  const SizedBox(height: 4),
+                  // Calories and macros in the same line
+                  Row(
+                    children: [
+                      // Larger calorie count
+                      Text(
+                        calories,
+                        style: const TextStyle(
+                          fontSize: 18, // Increased from 16
+                          fontWeight: FontWeight.bold, // Reverted to bold
+                          color: Color(0xFF333333),
+                        ),
                       ),
-                    ),
-                    const Spacer(),
-                    // Macronutrient badges inline
-                    Row(
-                      children: [
-                        _buildMacroBadgeWithIcon(
-                          Icons.water_drop,
-                          AppColors.carbsBlue,
-                          carbs,
-                        ),
-                        const SizedBox(width: 4),
-                        _buildMacroBadgeWithIcon(
-                          Icons.restaurant_menu,
-                          AppColors.proteinPurple,
-                          protein,
-                        ),
-                        const SizedBox(width: 4),
-                        _buildMacroBadgeWithIcon(
-                          Icons.waves,
-                          AppColors.fatPink,
-                          fat,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+                      const Spacer(),
+                      // Macronutrient badges inline
+                      Row(
+                        children: [
+                          _buildMacroBadgeWithIcon(
+                            Icons.water_drop,
+                            AppColors.carbsBlue,
+                            carbs,
+                          ),
+                          const SizedBox(width: 4),
+                          _buildMacroBadgeWithIcon(
+                            Icons.restaurant_menu,
+                            AppColors.proteinPurple,
+                            protein,
+                          ),
+                          const SizedBox(width: 4),
+                          _buildMacroBadgeWithIcon(
+                            Icons.waves,
+                            AppColors.fatPink,
+                            fat,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
