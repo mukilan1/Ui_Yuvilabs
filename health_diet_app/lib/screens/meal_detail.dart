@@ -398,7 +398,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                 ),
                                 ListTile(
                                   contentPadding: EdgeInsets.symmetric(
-                                    vertical: 4.0,
+                                    vertical: 0.0,
                                     horizontal: 0.0,
                                   ),
                                   title: Text('Honey'),
@@ -406,13 +406,17 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                 ),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: 16.0,
+                                    horizontal: 0.0,
                                   ),
-                                  child: Divider(color: Colors.grey[400]),
+                                  child: Divider(
+                                    color: Colors.grey[400],
+                                    height: 0.5,
+                                    thickness: 0.2,
+                                  ),
                                 ),
                                 ListTile(
                                   contentPadding: EdgeInsets.symmetric(
-                                    vertical: 4.0,
+                                    vertical: 0.0,
                                     horizontal: 0.0,
                                   ),
                                   title: Text('Berries'),

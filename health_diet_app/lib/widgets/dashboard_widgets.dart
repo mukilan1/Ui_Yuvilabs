@@ -190,11 +190,23 @@ class MealItemCard extends StatelessWidget {
             child: ClipOval(
               child: imagePlaceholder == 'placeholder_oatmeal'
                   ? Image.asset(
-                      'assets/images/oatmeal.png',
-                      fit: BoxFit.cover,
+                      'assets/Food_Bowl.png',
+                      fit: BoxFit.contain,
                       errorBuilder: (context, error, stackTrace) {
                         return const Icon(
                           Icons.bakery_dining,
+                          color: Color(0xFF8D6E63),
+                          size: 12,
+                        );
+                      },
+                    )
+                  : imagePlaceholder == 'placeholder_salad'
+                  ? Image.asset(
+                      'assets/Garlic_chicken.png',
+                      fit: BoxFit.contain,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(
+                          Icons.restaurant,
                           color: Color(0xFF8D6E63),
                           size: 12,
                         );

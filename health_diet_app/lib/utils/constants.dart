@@ -26,7 +26,7 @@ class AppConstants {
 
   // Profile & Avatar Sizes
   static const double profileImageSize = 40.0;
-  static const double foodImageSmall = 56.0;
+  static const double foodImageSmall = 70.0;
   static const double foodImageLarge = 200.0;
 
   // Calendar
