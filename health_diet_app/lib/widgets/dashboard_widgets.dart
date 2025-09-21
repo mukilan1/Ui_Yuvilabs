@@ -406,6 +406,16 @@ class CustomBottomNavigationBar extends StatelessWidget {
   }
 
   Widget _buildNavItem(IconData icon, String label, int index) {
+    String imagePath = '';
+    if (label == 'Home')
+      imagePath = 'assets/Home.png';
+    else if (label == 'Tracker')
+      imagePath = 'assets/Tracker.png';
+    else if (label == 'Habits')
+      imagePath = 'assets/Habits.png';
+    else if (label == 'Settings')
+      imagePath = 'assets/Settings.png';
+
     return GestureDetector(
       onTap: () => onTap(index),
       child: Container(
@@ -413,12 +423,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              icon,
-              color: Colors.black, // All navigation icons black
-              size: 24,
-              weight: 1.5, // Thin line icons
-            ),
+            Image.asset(imagePath, width: 24, height: 24, fit: BoxFit.contain),
             const SizedBox(height: 4),
             Text(
               label,
