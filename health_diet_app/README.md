@@ -1,16 +1,7 @@
 # health_diet_app
 
-A new Flutter project.
+UI Developed for the YuviLabs
 
-## Getting Started
+![WhatsApp Image 2025-09-21 at 14 01 02_b541f197](https://github.com/user-attachments/assets/faffdb3e-c288-43a5-a8ca-820490039422)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![WhatsApp Image 2025-09-21 at 14 01 02_3b8cdea1](https://github.com/user-attachments/assets/3266d3b3-3ff5-4442-84cd-2eadf08aa069)
