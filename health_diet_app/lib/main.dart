@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'screens/home.dart';
@@ -10,7 +12,7 @@ void main() {
 }
 
 class HealthDietApp extends StatelessWidget {
-  const HealthDietApp({Key? key}) : super(key: key);
+  const HealthDietApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class HealthDietApp extends StatelessWidget {
 }
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -56,6 +58,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF6F6F6),
       body: Stack(
         children: [
           // Main content with padding at bottom for floating nav
@@ -96,6 +99,8 @@ class _MainScreenState extends State<MainScreen> {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
+                    // ignore: duplicate_ignore
+                    // ignore: deprecated_member_use
                     color: const Color(0xFF8ADC97).withOpacity(0.4),
                     offset: const Offset(0, 6),
                     blurRadius: 16,

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../utils/styles.dart';
@@ -5,7 +7,7 @@ import '../utils/constants.dart';
 import '../widgets/dashboard_widgets.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -51,7 +53,7 @@ class _HomePageState extends State<HomePage> {
           child: ClipOval(
             child: Transform.scale(
               scale: 0.7,
-              child: Image.asset('assets/profile.png', fit: BoxFit.cover),
+              child: Image.asset('assets/Profile.png', fit: BoxFit.cover),
             ),
           ),
         ),
@@ -204,6 +206,8 @@ class _HomePageState extends State<HomePage> {
                     BoxShadow(
                       color: const Color(
                         0xFFC6E7FE,
+                        // ignore: duplicate_ignore
+                        // ignore: deprecated_member_use
                       ).withOpacity(0.3), // Matching glow
                       offset: const Offset(0, 4),
                       blurRadius: 12,
@@ -284,7 +288,7 @@ class _HomePageState extends State<HomePage> {
                           width: 40,
                           height: 40,
                           decoration: const BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFFDDCFE),
                             shape: BoxShape.circle,
                           ),
                           child: ClipOval(
@@ -352,7 +356,7 @@ class _HomePageState extends State<HomePage> {
                           width: 40,
                           height: 40,
                           decoration: const BoxDecoration(
-                            color: Colors.white,
+                            color: Color(0xFFFFE8E9),
                             shape: BoxShape.circle,
                           ),
                           child: ClipOval(

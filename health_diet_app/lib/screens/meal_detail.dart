@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import '../utils/colors.dart';
@@ -7,7 +9,7 @@ import '../widgets/meal_detail_widgets.dart';
 class MealDetailPage extends StatefulWidget {
   final Map<String, dynamic>? mealData;
 
-  const MealDetailPage({Key? key, this.mealData}) : super(key: key);
+  const MealDetailPage({super.key, this.mealData});
 
   @override
   State<MealDetailPage> createState() => _MealDetailPageState();
@@ -40,12 +42,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
               _buildFoodImage(),
               Container(
                 color: const Color(0xFFF6F6F6),
-                child: Column(
-                  children: [
-                    _buildMealInfoContent(meal),
-                    _buildIngredientsSectionContent(),
-                  ],
-                ),
+                child: Column(children: [_buildMealInfoContent(meal)]),
               ),
               const SizedBox(height: AppConstants.spacingLarge),
             ],
@@ -190,9 +187,37 @@ class _MealDetailPageState extends State<MealDetailPage> {
                         ),
                       ),
                     ),
-                    Image.asset('assets/Download.png', width: 17, height: 17),
+                    Container(
+                      width: 32,
+                      height: 32,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          'assets/Download.png',
+                          width: 17,
+                          height: 17,
+                        ),
+                      ),
+                    ),
                     const SizedBox(width: 25),
-                    Image.asset('assets/Share.png', width: 17, height: 17),
+                    Container(
+                      width: 32,
+                      height: 32,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          'assets/Share.png',
+                          width: 17,
+                          height: 17,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(height: AppConstants.spacingSmall),
@@ -497,39 +522,28 @@ class _MealDetailPageState extends State<MealDetailPage> {
     );
   }
 
-  Widget _buildMacroBadge(IconData icon, String value, Color color) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: color.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 14, color: color),
-          const SizedBox(width: 4),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
-              color: color,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildMacroBadgeWithIcon(IconData icon, Color color, String value) {
     String imagePath;
+    BoxDecoration? decoration;
+
     if (icon == Icons.water_drop) {
       imagePath = 'assets/Chicken_g.png';
+      decoration = BoxDecoration(
+        color: const Color(0xFFE2F4FF),
+        borderRadius: BorderRadius.circular(12),
+      );
     } else if (icon == Icons.restaurant_menu) {
       imagePath = 'assets/Leaf_g.png';
+      decoration = BoxDecoration(
+        color: color.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(12),
+      );
     } else if (icon == Icons.waves) {
       imagePath = 'assets/Vapour_g.png';
+      decoration = BoxDecoration(
+        color: color.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(12),
+      );
     } else {
       // fallback
       return Icon(icon, size: 12, color: color);
@@ -537,12 +551,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-      decoration: icon == Icons.water_drop
-          ? BoxDecoration(
-              color: color.withOpacity(0.15),
-              borderRadius: BorderRadius.circular(12),
-            )
-          : null,
+      decoration: decoration,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

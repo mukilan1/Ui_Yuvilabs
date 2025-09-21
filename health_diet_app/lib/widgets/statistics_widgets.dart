@@ -9,11 +9,11 @@ class CustomTabBar extends StatelessWidget {
   final Function(int) onTabSelected;
 
   const CustomTabBar({
-    Key? key,
+    super.key,
     required this.tabs,
     required this.selectedIndex,
     required this.onTabSelected,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -54,11 +54,11 @@ class NutritionBarChart extends StatelessWidget {
   final double maxValue;
 
   const NutritionBarChart({
-    Key? key,
+    super.key,
     required this.values,
     required this.labels,
     this.maxValue = 100,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -111,11 +111,11 @@ class BodyFatLineChart extends StatelessWidget {
   final double currentValue;
 
   const BodyFatLineChart({
-    Key? key,
+    super.key,
     required this.values,
     required this.labels,
     required this.currentValue,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -188,12 +188,12 @@ class StatCard extends StatelessWidget {
   final Widget? chart;
 
   const StatCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.subtitle,
     this.chart,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -230,7 +230,7 @@ class StatCard extends StatelessWidget {
 class AnalyticsButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const AnalyticsButton({Key? key, required this.onPressed}) : super(key: key);
+  const AnalyticsButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

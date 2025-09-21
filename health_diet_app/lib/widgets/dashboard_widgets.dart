@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'dart:math';
 import '../utils/colors.dart';
@@ -14,13 +13,13 @@ class DailyOverviewCard extends StatelessWidget {
   final IconData icon;
 
   const DailyOverviewCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.backgroundColor,
     required this.iconColor,
     required this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -85,11 +84,11 @@ class CalendarDayItem extends StatelessWidget {
   final double progress;
 
   const CalendarDayItem({
-    Key? key,
+    super.key,
     required this.day,
     this.isActive = false,
     this.progress = 0.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -143,14 +142,14 @@ class MealItemCard extends StatelessWidget {
   final String imagePlaceholder;
 
   const MealItemCard({
-    Key? key,
+    super.key,
     required this.foodName,
     required this.calories,
     required this.carbs,
     required this.protein,
     required this.fat,
     required this.imagePlaceholder,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -332,6 +331,7 @@ class MealItemCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
       decoration: icon == Icons.water_drop
           ? BoxDecoration(
+              // ignore: deprecated_member_use
               color: color.withOpacity(0.15),
               borderRadius: BorderRadius.circular(12),
             )
@@ -360,6 +360,7 @@ class MacroIcon extends StatelessWidget {
   final String value;
   final double size;
 
+  // ignore: use_super_parameters
   const MacroIcon({
     Key? key,
     required this.color,
@@ -372,6 +373,7 @@ class MacroIcon extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
+        // ignore: deprecated_member_use
         color: color.withOpacity(0.1),
         borderRadius: BorderRadius.circular(size),
       ),
@@ -392,10 +394,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
   final Function(int) onTap;
 
   const CustomBottomNavigationBar({
-    Key? key,
+    super.key,
     required this.currentIndex,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -406,12 +408,14 @@ class CustomBottomNavigationBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(36),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.black.withOpacity(0.1),
             offset: const Offset(0, 4),
             blurRadius: 20,
             spreadRadius: 0,
           ),
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.black.withOpacity(0.05),
             offset: const Offset(0, 8),
             blurRadius: 32,
@@ -458,13 +462,16 @@ class CustomBottomNavigationBar extends StatelessWidget {
 
   Widget _buildNavItem(IconData icon, String label, int index) {
     String imagePath = '';
-    if (label == 'Home')
+    if (label == 'Home') {
       imagePath = 'assets/Home.png';
-    else if (label == 'Tracker')
+    } else if (label == 'Tracker')
+      // ignore: curly_braces_in_flow_control_structures
       imagePath = 'assets/Tracker.png';
     else if (label == 'Habits')
+      // ignore: curly_braces_in_flow_control_structures
       imagePath = 'assets/Habits.png';
     else if (label == 'Settings')
+      // ignore: curly_braces_in_flow_control_structures
       imagePath = 'assets/Settings.png';
 
     return GestureDetector(

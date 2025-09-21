@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../utils/styles.dart';
@@ -8,10 +10,10 @@ class ServingCounter extends StatefulWidget {
   final Function(int) onChanged;
 
   const ServingCounter({
-    Key? key,
+    super.key,
     this.initialValue = 1,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   State<ServingCounter> createState() => _ServingCounterState();
@@ -85,11 +87,11 @@ class MacroBadge extends StatelessWidget {
   final Color color;
 
   const MacroBadge({
-    Key? key,
+    super.key,
     required this.label,
     required this.value,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -120,11 +122,11 @@ class PrepInfoItem extends StatelessWidget {
   final String value;
 
   const PrepInfoItem({
-    Key? key,
+    super.key,
     required this.icon,
     required this.label,
     required this.value,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -159,11 +161,11 @@ class IngredientItem extends StatelessWidget {
   final IconData icon;
 
   const IngredientItem({
-    Key? key,
+    super.key,
     required this.name,
     required this.amount,
     this.icon = Icons.circle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -192,11 +194,11 @@ class ExpandableSection extends StatefulWidget {
   final bool initiallyExpanded;
 
   const ExpandableSection({
-    Key? key,
+    super.key,
     required this.title,
     required this.children,
     this.initiallyExpanded = true,
-  }) : super(key: key);
+  });
 
   @override
   State<ExpandableSection> createState() => _ExpandableSectionState();
