@@ -191,23 +191,17 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 100,
-                      height: 100,
+                      width: 40,
+                      height: 40,
                       decoration: const BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            offset: Offset(2, 2),
-                            blurRadius: 4,
-                          ),
-                        ],
                       ),
-                      child: const Icon(
-                        Icons.bakery_dining,
-                        color: Color(0xFF1976D2), // Blue color
-                        size: 32,
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/Carbs.png',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 8), // Reduced spacing
@@ -268,18 +262,12 @@ class _HomePageState extends State<HomePage> {
                           decoration: const BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black12,
-                                offset: Offset(2, 2),
-                                blurRadius: 4,
-                              ),
-                            ],
                           ),
-                          child: const Icon(
-                            Icons.restaurant,
-                            color: Color(0xFFE91E63), // Pink color
-                            size: 20,
+                          child: ClipOval(
+                            child: Image.asset(
+                              'assets/Protine.png',
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         const SizedBox(width: 8),
@@ -339,18 +327,12 @@ class _HomePageState extends State<HomePage> {
                           decoration: const BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black12,
-                                offset: Offset(2, 2),
-                                blurRadius: 4,
-                              ),
-                            ],
                           ),
-                          child: const Icon(
-                            Icons.egg,
-                            color: Color(0xFFFF9800), // Orange color
-                            size: 20,
+                          child: ClipOval(
+                            child: Image.asset(
+                              'assets/Fat.png',
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         const SizedBox(width: 8),
