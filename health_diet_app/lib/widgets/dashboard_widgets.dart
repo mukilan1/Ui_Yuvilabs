@@ -215,50 +215,45 @@ class MealItemCard extends StatelessWidget {
         children: [
           // 3D icon with shadow
           Container(
-            width: AppConstants.foodImageSmall,
-            height: AppConstants.foodImageSmall,
-            decoration: const BoxDecoration(
+            width: 50.0,
+            height: 50.0,
+            decoration: BoxDecoration(
               color: Colors.white,
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black12,
-                  offset: Offset(2, 2),
-                  blurRadius: 4,
-                ),
-              ],
+              borderRadius: BorderRadius.circular(8),
             ),
-            child: ClipOval(
-              child: imagePlaceholder == 'placeholder_oatmeal'
-                  ? Image.asset(
-                      'assets/Food_Bowl.png',
-                      fit: BoxFit.contain,
-                      errorBuilder: (context, error, stackTrace) {
-                        return const Icon(
-                          Icons.bakery_dining,
-                          color: Color(0xFF8D6E63),
-                          size: 12,
-                        );
-                      },
-                    )
-                  : imagePlaceholder == 'placeholder_salad'
-                  ? Image.asset(
-                      'assets/Garlic_chicken.png',
-                      fit: BoxFit.contain,
-                      errorBuilder: (context, error, stackTrace) {
-                        return const Icon(
-                          Icons.restaurant,
-                          color: Color(0xFF8D6E63),
-                          size: 12,
-                        );
-                      },
-                    )
-                  : const Icon(
-                      Icons.restaurant,
-                      color: Color(0xFF8D6E63),
-                      size: 12,
-                    ),
-            ),
+            child: imagePlaceholder == 'placeholder_oatmeal'
+                ? Image.asset(
+                    'assets/Food_Bowl_1.png',
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Icon(
+                        Icons.bakery_dining,
+                        color: Color(0xFF8D6E63),
+                        size: 12,
+                      );
+                    },
+                  )
+                : imagePlaceholder == 'placeholder_salad'
+                ? Image.asset(
+                    'assets/Garlic_chicken.png',
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Icon(
+                        Icons.restaurant,
+                        color: Color(0xFF8D6E63),
+                        size: 12,
+                      );
+                    },
+                  )
+                : const Icon(
+                    Icons.restaurant,
+                    color: Color(0xFF8D6E63),
+                    size: 12,
+                  ),
           ),
           const SizedBox(width: AppConstants.spacingMedium),
           Expanded(
