@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'screens/home.dart';
 import 'screens/meal_detail.dart';
 import 'widgets/dashboard_widgets.dart';
@@ -21,7 +20,7 @@ class HealthDietApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
-        fontFamily: GoogleFonts.poppins().fontFamily,
+        fontFamily: 'Poppins',
         scaffoldBackgroundColor: AppColors.white,
       ),
       home: const MainScreen(),
