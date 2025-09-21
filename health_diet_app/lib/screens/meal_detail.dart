@@ -401,17 +401,39 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                     vertical: 0.0,
                                     horizontal: 0.0,
                                   ),
-                                  title: Text('Honey'),
-                                  trailing: Text('10 gr'),
+                                  title: Row(
+                                    children: [
+                                      Image.asset(
+                                        'assets/Honey.png',
+                                        width: 28,
+                                        height: 28,
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        'Honey',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  trailing: Text(
+                                    '10 gr',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 13,
+                                    ),
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
                                     horizontal: 0.0,
                                   ),
                                   child: Divider(
-                                    color: Colors.grey[400],
+                                    color: Color(0xFF9593BB),
                                     height: 0.5,
-                                    thickness: 0.2,
+                                    thickness: 1,
                                   ),
                                 ),
                                 ListTile(
@@ -419,8 +441,40 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                     vertical: 0.0,
                                     horizontal: 0.0,
                                   ),
-                                  title: Text('Berries'),
-                                  trailing: Text('120 gr'),
+                                  title: Row(
+                                    children: [
+                                      Image.asset(
+                                        'assets/Berries.png',
+                                        width: 29,
+                                        height: 29,
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        'Berries',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  trailing: Text(
+                                    '120 gr',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 0.0,
+                                  ),
+                                  child: Divider(
+                                    color: Color(0xFF9593BB),
+                                    height: 0.5,
+                                    thickness: 1,
+                                  ),
                                 ),
                               ],
                             ),
