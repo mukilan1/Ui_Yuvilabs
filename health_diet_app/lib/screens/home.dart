@@ -264,9 +264,12 @@ class _HomePageState extends State<HomePage> {
                             shape: BoxShape.circle,
                           ),
                           child: ClipOval(
-                            child: Image.asset(
-                              'assets/Protine.png',
-                              fit: BoxFit.cover,
+                            child: Transform.scale(
+                              scale: 0.8,
+                              child: Image.asset(
+                                'assets/Protine.png',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
@@ -329,9 +332,12 @@ class _HomePageState extends State<HomePage> {
                             shape: BoxShape.circle,
                           ),
                           child: ClipOval(
-                            child: Image.asset(
-                              'assets/Fat.png',
-                              fit: BoxFit.cover,
+                            child: Transform.scale(
+                              scale: 0.9,
+                              child: Image.asset(
+                                'assets/Fat.png',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
