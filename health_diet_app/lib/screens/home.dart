@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: List.generate(7, (index) {
               final dayNumbers = ['13', '14', '15', '16', '17', '18', '19'];
-              final progressList = [0.1, 0.3, 0.5, 0.8, 0.6, 0.9, 0.2];
+              final progressList = [0.2, 0.4, 0.7, 0.5, 0.7, 0.8, 0.9];
               return GestureDetector(
                 onTap: () {
                   setState(() {
