@@ -235,19 +235,23 @@ class _MealDetailPageState extends State<MealDetailPage> {
                     ),
                     const SizedBox(width: 16),
                     // Macronutrient Badges
-                    _buildMacroBadge(
+                    _buildMacroBadgeWithIcon(
                       Icons.water_drop,
-                      '40g',
                       AppColors.carbsBlue,
+                      '40',
                     ),
                     const SizedBox(width: 8),
-                    _buildMacroBadge(
+                    _buildMacroBadgeWithIcon(
                       Icons.restaurant_menu,
-                      '10g',
                       AppColors.proteinPurple,
+                      '10',
                     ),
                     const SizedBox(width: 8),
-                    _buildMacroBadge(Icons.waves, '5g', AppColors.fatPink),
+                    _buildMacroBadgeWithIcon(
+                      Icons.waves,
+                      AppColors.fatPink,
+                      '5',
+                    ),
                   ],
                 ),
                 const SizedBox(height: 32),
@@ -307,14 +311,18 @@ class _MealDetailPageState extends State<MealDetailPage> {
                               Row(
                                 children: [
                                   IconButton(
-                                    icon: const Icon(
+                                    icon: Icon(
                                       Icons.remove_circle_outline,
+                                      weight: 200,
                                     ),
                                     onPressed: () {},
                                   ),
                                   Text('1', style: TextStyle(fontSize: 11)),
                                   IconButton(
-                                    icon: const Icon(Icons.add_circle_outline),
+                                    icon: Icon(
+                                      Icons.add_circle_outline,
+                                      weight: 200,
+                                    ),
                                     onPressed: () {},
                                   ),
                                 ],
@@ -509,6 +517,45 @@ class _MealDetailPageState extends State<MealDetailPage> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w500,
+              color: color,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMacroBadgeWithIcon(IconData icon, Color color, String value) {
+    String imagePath;
+    if (icon == Icons.water_drop) {
+      imagePath = 'assets/Chicken_g.png';
+    } else if (icon == Icons.restaurant_menu) {
+      imagePath = 'assets/Leaf_g.png';
+    } else if (icon == Icons.waves) {
+      imagePath = 'assets/Vapour_g.png';
+    } else {
+      // fallback
+      return Icon(icon, size: 12, color: color);
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+      decoration: icon == Icons.water_drop
+          ? BoxDecoration(
+              color: color.withOpacity(0.15),
+              borderRadius: BorderRadius.circular(12),
+            )
+          : null,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(imagePath, width: 13, height: 13, fit: BoxFit.contain),
+          const SizedBox(width: 2),
+          Text(
+            '${value}g',
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.normal,
               color: color,
             ),
           ),
