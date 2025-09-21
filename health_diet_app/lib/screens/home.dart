@@ -45,10 +45,15 @@ class _HomePageState extends State<HomePage> {
           width: AppConstants.profileImageSize,
           height: AppConstants.profileImageSize,
           decoration: const BoxDecoration(
-            color: AppColors.lightGrey,
+            color: Color(0xFFC7EEFE),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.person, color: AppColors.mutedText, size: 24),
+          child: ClipOval(
+            child: Transform.scale(
+              scale: 0.7,
+              child: Image.asset('assets/profile.png', fit: BoxFit.cover),
+            ),
+          ),
         ),
         const SizedBox(width: AppConstants.paddingSmall),
         Expanded(
@@ -61,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                     TextSpan(
                       text: 'Good Morning ',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         fontWeight: FontWeight.normal,
                         color: AppColors.mutedText,
                       ),
@@ -69,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                     TextSpan(
                       text: '👋',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         fontWeight: FontWeight.normal,
                         color: Colors.white,
                       ),
