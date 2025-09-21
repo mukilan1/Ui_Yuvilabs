@@ -100,9 +100,11 @@ class _HomePageState extends State<HomePage> {
               height: 25,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: AppColors.lightGrey, width: 1),
+                border: Border.all(color: Colors.white, width: 1),
               ),
-              child: Image.asset('assets/Search.png', fit: BoxFit.contain),
+              child: ClipOval(
+                child: Image.asset('assets/Search.png', fit: BoxFit.cover),
+              ),
             ),
             const SizedBox(width: 16),
             Container(
@@ -110,11 +112,13 @@ class _HomePageState extends State<HomePage> {
               height: 25,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: AppColors.lightGrey, width: 1),
+                border: Border.all(color: Colors.white, width: 1),
               ),
-              child: Image.asset(
-                'assets/Notification.png',
-                fit: BoxFit.contain,
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/Notification.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ],

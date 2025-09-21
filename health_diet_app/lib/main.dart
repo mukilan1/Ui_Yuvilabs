@@ -137,10 +137,11 @@ class _MainScreenState extends State<MainScreen> {
                     });
                   },
                   child: const Center(
-                    child: Icon(
-                      Icons.auto_awesome,
-                      color: Color(0xFFFFFFFF),
-                      size: 29,
+                    child: Image(
+                      image: AssetImage('assets/Sparkel.png'),
+                      width: 37,
+                      height: 37,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),

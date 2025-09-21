@@ -474,7 +474,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(imagePath, width: 24, height: 24, fit: BoxFit.contain),
+            Image.asset(imagePath, width: 22, height: 22, fit: BoxFit.contain),
             const SizedBox(height: 4),
             Text(
               label,
