@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import '../utils/colors.dart';
 import '../utils/constants.dart';
-import '../widgets/meal_detail_widgets.dart';
 
 class MealDetailPage extends StatefulWidget {
   final Map<String, dynamic>? mealData;
@@ -271,7 +270,10 @@ class _MealDetailPageState extends State<MealDetailPage> {
                 const SizedBox(height: 32),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 3.0),
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 12.0,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16.0),
@@ -293,65 +295,100 @@ class _MealDetailPageState extends State<MealDetailPage> {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 4.0,
-                          vertical: 16.0,
+                          vertical: 8.0,
                         ),
                         child: Column(
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text(
-                                  'Servings',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                SizedBox(width: 83),
-                                Text(
-                                  'Preparation',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                SizedBox(width: 70),
-                                Text(
-                                  'Cook',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 8),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Row(
+                                Column(
                                   children: [
-                                    IconButton(
-                                      icon: Icon(
-                                        Icons.remove_circle_outline,
-                                        weight: 200,
+                                    Text(
+                                      'Servings',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12,
                                       ),
-                                      onPressed: () {},
                                     ),
-                                    Text('1', style: TextStyle(fontSize: 11)),
-                                    IconButton(
-                                      icon: Icon(
-                                        Icons.add_circle_outline,
-                                        weight: 200,
-                                      ),
-                                      onPressed: () {},
+                                    const SizedBox(height: 0),
+                                    Row(
+                                      children: [
+                                        IconButton(
+                                          icon: Icon(
+                                            Icons.remove_circle_outline,
+                                            weight: 200,
+                                          ),
+                                          onPressed: () {},
+                                        ),
+                                        Text(
+                                          '1',
+                                          style: TextStyle(fontSize: 11),
+                                        ),
+                                        IconButton(
+                                          icon: Icon(
+                                            Icons.add_circle_outline,
+                                            weight: 200,
+                                          ),
+                                          onPressed: () {},
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 45),
-                                Text('5 Mins', style: TextStyle(fontSize: 11)),
-                                SizedBox(width: 100),
-                                Text('20 mins', style: TextStyle(fontSize: 11)),
+                                SizedBox(width: 10),
+
+                                Container(
+                                  height: 50,
+                                  width: 1,
+                                  color: Colors.grey[300],
+                                ),
+                                SizedBox(width: 10),
+
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Preparation',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 15),
+                                    Text(
+                                      '5 Mins',
+                                      style: TextStyle(fontSize: 11),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(width: 10),
+                                Container(
+                                  height: 50,
+                                  width: 1,
+                                  color: Colors.grey[300],
+                                ),
+                                SizedBox(width: 10),
+
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Cook',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 15),
+                                    Text(
+                                      '20 mins',
+                                      style: TextStyle(fontSize: 11),
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           ],
@@ -360,6 +397,7 @@ class _MealDetailPageState extends State<MealDetailPage> {
                     ],
                   ),
                 ),
+                SizedBox(height: 20),
                 SizedBox(
                   height: 300,
                   child: Stack(
@@ -564,40 +602,6 @@ class _MealDetailPageState extends State<MealDetailPage> {
               fontWeight: FontWeight.normal,
               color: color,
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildIngredientsSectionContent() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppConstants.paddingMedium,
-      ),
-      child: ExpandableSection(
-        title: 'Ingredients',
-        children: const [
-          IngredientItem(
-            name: 'Rolled Oats',
-            amount: '1/2 cup',
-            icon: Icons.grass,
-          ),
-          IngredientItem(
-            name: 'Mixed Berries',
-            amount: '120g',
-            icon: Icons.circle,
-          ),
-          IngredientItem(name: 'Honey', amount: '10g', icon: Icons.water_drop),
-          IngredientItem(
-            name: 'Almond Milk',
-            amount: '1 cup',
-            icon: Icons.opacity,
-          ),
-          IngredientItem(
-            name: 'Chia Seeds',
-            amount: '1 tbsp',
-            icon: Icons.circle_outlined,
           ),
         ],
       ),
