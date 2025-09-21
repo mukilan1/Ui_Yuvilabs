@@ -61,9 +61,9 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               RichText(
-                text: const TextSpan(
+                text: TextSpan(
                   children: [
-                    TextSpan(
+                    const TextSpan(
                       text: 'Good Morning ',
                       style: TextStyle(
                         fontSize: 12,
@@ -71,12 +71,12 @@ class _HomePageState extends State<HomePage> {
                         color: AppColors.mutedText,
                       ),
                     ),
-                    TextSpan(
-                      text: '👋',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.white,
+                    WidgetSpan(
+                      child: Image.asset(
+                        'assets/Greetings.png',
+                        width: 12,
+                        height: 15,
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ],
@@ -95,12 +95,27 @@ class _HomePageState extends State<HomePage> {
         ),
         Row(
           children: [
-            const Icon(Icons.search, color: AppColors.darkText, size: 24),
+            Container(
+              width: 25,
+              height: 25,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: AppColors.lightGrey, width: 1),
+              ),
+              child: Image.asset('assets/Search.png', fit: BoxFit.contain),
+            ),
             const SizedBox(width: 16),
-            const Icon(
-              Icons.notifications_outlined,
-              color: AppColors.darkText,
-              size: 24,
+            Container(
+              width: 25,
+              height: 25,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: AppColors.lightGrey, width: 1),
+              ),
+              child: Image.asset(
+                'assets/Notification.png',
+                fit: BoxFit.contain,
+              ),
             ),
           ],
         ),
