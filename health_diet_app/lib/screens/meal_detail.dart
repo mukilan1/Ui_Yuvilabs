@@ -169,9 +169,9 @@ class _MealDetailPageState extends State<MealDetailPage> {
                   children: [
                     Expanded(
                       child: RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                           children: [
-                            TextSpan(
+                            const TextSpan(
                               text: 'Oatmeal with Berries ',
                               style: TextStyle(
                                 fontSize: 18,
@@ -180,30 +180,20 @@ class _MealDetailPageState extends State<MealDetailPage> {
                                 fontFamily: 'Roboto',
                               ),
                             ),
-                            TextSpan(
-                              text: '🫐',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontFamily: 'Roboto',
+                            WidgetSpan(
+                              child: Image.asset(
+                                'assets/Berries_1.png',
+                                width: 16,
+                                height: 16,
                               ),
                             ),
                           ],
                         ),
                       ),
                     ),
-                    const Icon(
-                      Icons.download_outlined,
-                      color: Colors.black,
-                      size: 16,
-                    ),
-                    const SizedBox(width: 8),
-                    const Icon(
-                      Icons.share_outlined,
-                      color: Colors.black,
-                      size: 16,
-                    ),
+                    Image.asset('assets/Download.png', width: 17, height: 17),
+                    const SizedBox(width: 25),
+                    Image.asset('assets/Share.png', width: 17, height: 17),
                   ],
                 ),
                 const SizedBox(height: AppConstants.spacingSmall),
